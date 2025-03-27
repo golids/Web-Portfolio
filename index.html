@@ -54,10 +54,11 @@
         
         /* Enhanced Navigation */
         nav {
+            font-style: bold;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 40px; /* Increased from 15px to 25px for more spacing */
             padding: 20px;
             background: rgba(10, 10, 10, 0.95);
             position: fixed;
@@ -69,24 +70,25 @@
             box-shadow: var(--shadow-md);
             transition: var(--transition);
         }
-        
+
         nav.scrolled {
             padding: 15px 20px;
             box-shadow: var(--shadow-lg);
         }
-        
+
         nav a {
             color: var(--light);
             text-decoration: none;
             padding: 8px 16px;
             transition: var(--transition);
-            font-size: clamp(14px, 3vw, 16px);
+            font-size: clamp(16px, 4vw, 18px); /* Increased font size */
             border-radius: 30px;
             white-space: nowrap;
             position: relative;
             font-weight: 500;
+            letter-spacing: 0.3px; /* Added slight letter spacing */
         }
-        
+
         nav a::after {
             content: '';
             position: absolute;
@@ -98,13 +100,13 @@
             background: var(--primary);
             transition: var(--transition);
         }
-        
+
         nav a:hover, 
         nav a:focus,
         nav a.active {
             color: var(--primary);
         }
-        
+
         nav a:hover::after,
         nav a:focus::after,
         nav a.active::after {
@@ -160,15 +162,16 @@
         #home h1 {
             font-size: 60px;
             font-style: BOLD;
-            margin-bottom: 1.5rem;
+            margin-top: 5rem;
+            margin-bottom: 5rem;
             animation: fadeInUp 1s ease-out;
         }
         
         #home p {
-            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-size: clamp(1.4rem, 4.5vw, 2rem);
             font-weight: 400;
             color: var(--gray);
-            margin-bottom: 3rem;
+            margin-bottom: 10rem;
             animation: fadeInUp 1s ease-out 0.2s forwards;
             opacity: 0;
         }
@@ -188,6 +191,7 @@
         .cube-container {
             perspective: 1000px;
             margin: 40px 0;
+            margin-bottom: 10rem;
             z-index: 2;
             animation: fadeIn 1s ease-out 0.4s forwards;
             opacity: 0;
@@ -248,9 +252,25 @@
         
         /* About Section */
         #about {
-            background: var(--dark-light);
+            position: relative; /* Required for overlay */
+            background: url("Abg.jpg") center/cover;
         }
         
+        #about::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Black at 50% opacity */
+            z-index: 0; /* Places overlay between BG and content */
+        }
+        
+        #about > * {
+            position: relative; 
+            z-index: 1; /* Ensures text stays above overlay */
+        }
         .about-content {
             display: flex;
             align-items: center;
@@ -262,7 +282,7 @@
         
         .about-image {
             flex: 0 0 400px;
-            height: 500px;
+            height: 570px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -295,7 +315,8 @@
         }
         
         .about-text p {
-            font-size: 1.1rem;
+            font-size: 1.5rem;
+            font-style: bold;
             line-height: 1.8;
             margin-bottom: 25px;
             color: rgba(255, 255, 255, 0.9);
@@ -380,7 +401,24 @@
         
         /* Projects Section */
         #projects {
-            background: var(--dark);
+            position: relative; /* Required for overlay */
+            background: url("pc.jpg") center/cover;
+        }
+        
+        #projects::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(14, 9, 46, 0.5); /* blue*/
+            z-index: 0; /* Places overlay between BG and content */
+        }
+        
+        #projects > * {
+            position: relative; 
+            z-index: 1; /* Ensures text stays above overlay */
         }
         
         .projects-grid {
@@ -415,7 +453,7 @@
         }
         
         .project-image-container {
-            height: 220px;
+            height: 200px;
             overflow: hidden;
             position: relative;
         }
@@ -435,8 +473,8 @@
         
         .project-card h3 {
             color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.4rem;
+            margin-bottom: 5px;
+            font-size: 1.6rem;
         }
         
         .project-card p {
@@ -444,37 +482,7 @@
             line-height: 1.6;
             font-size: 0.95rem;
         }
-        
-        .project-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px 15px;
-            background: rgba(29, 161, 242, 0.1);
-            color: var(--primary);
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            border: 1px solid rgba(29, 161, 242, 0.3);
-        }
-        
-        .project-link i {
-            margin-right: 8px;
-        }
-        
-        .project-link:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-        
+    
         /* Hover Effects */
         .project-card:hover {
             transform: translateY(-10px);
@@ -486,7 +494,8 @@
         }
         
         .project-card:hover .project-image {
-            transform: scale(1.1);
+            transform: scale(1.2); /* slightly zoom */
+            transition: transform 0.3s ease-out;
         }
         
         /* Responsive Projects */
@@ -513,20 +522,24 @@
         
         /* Contact Section */
         #contact {
-            background: linear-gradient(135deg, var(--dark-light) 0%, var(--dark) 100%);
-            position: relative;
+            position: relative; /* Required for overlay */
+            background: url("email.jpg") center/cover;
         }
         
         #contact::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('pattern.png') repeat;
-            opacity: 0.05;
-            z-index: 1;
+            background: rgba(0, 0, 0, 0.5); /* Black at 50% opacity */
+            z-index: 0; /* Places overlay between BG and content */
+        }
+        
+        #contact > * {
+            position: relative; 
+            z-index: 1; /* Ensures text stays above overlay */
         }
         
         .contact-form {
@@ -595,8 +608,9 @@
         .social-media {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 50px;
             margin: 40px 0;
+            margin-bottom: 10rem;
             flex-wrap: wrap;
             z-index: 2;
         }
@@ -606,10 +620,11 @@
             height: 55px;
             border-radius: 50%;
             display: flex;
+            text-decoration: none !important;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
-            background-size: 60%;
+            background-size: 100%;
             background-position: center;
             background-repeat: no-repeat;
             background-color: rgba(255, 255, 255, 0.1);
@@ -618,7 +633,8 @@
         
         .social-icon i {
             color: white;
-            font-size: 24px;
+            font-size: 30px;
+            
         }
         
         .social-icon:hover {
@@ -730,7 +746,7 @@
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 25px;
             z-index: 1000;
         }
         
@@ -791,13 +807,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--dark);
+            background: rgba(10, 10, 10, 0.85);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            transition: opacity 0.5s ease-out;
+            transition: opacity 0.3s ease-out;
         }
         
         .loading-screen.hidden {
@@ -841,25 +857,25 @@
 
     <!-- Navigation -->
     <nav id="mainNav">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#home" class="active">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#contact">CONTACT</a>
     </nav>
 
     <!-- Section Indicator -->
     <div class="section-indicator">
-        <a href="#home" class="indicator-dot active" data-section="Home"></a>
-        <a href="#about" class="indicator-dot" data-section="About"></a>
-        <a href="#projects" class="indicator-dot" data-section="Projects"></a>
-        <a href="#contact" class="indicator-dot" data-section="Contact"></a>
+        <a href="#home" class="indicator-dot active" data-section="HOME"></a>
+        <a href="#about" class="indicator-dot" data-section="ABOUT"></a>
+        <a href="#projects" class="indicator-dot" data-section="PROJECTS"></a>
+        <a href="#contact" class="indicator-dot" data-section="CONTACT"></a>
     </div>
 
     <!-- Home Section -->
     <section id="home">
         <div class="content">
-            <h1>GOLDAE LOVE L. REBUCAS</h1>
-            <p>WEB DEVELOPER & DESIGNER</p>
+            <h1>Hi! I'm Goldae Rebucas</h1>
+            <p>STUDENT | WEB DEVELOPER | DESIGNER | PROGRAMMER | GAMER</p>
             
             <div class="cube-container">
                 <div class="cube">
@@ -877,20 +893,20 @@
                 <a href="https://www.facebook.com/goldilab28" class="social-icon facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                     <i class="fab fa-facebook-f"></i>
                 </a>
+                <a href="https://www.instagram.com/println.golids" class="social-icon instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
                 <a href="https://x.com/benggalz?s=07" class="social-icon x" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                     <i class="fab fa-twitter"></i>
                 </a>
                 <a href="https://github.com/golids" class="social-icon github" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://linkedin.com" class="social-icon linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
             </div>
             
             <div class="scroll-indicator">
                 <i class="fas fa-chevron-down"></i>
-                <span>SCROLL DOWN</span>
+                <span>SCROLL DOWN TO KNOW MORE</span>
             </div>
         </div>
     </section>
@@ -903,19 +919,20 @@
                 <img src="2x2.jpg" alt="Goldae Love L. Rebucas" loading="lazy">
             </div>
             <div class="about-text">
-                <p>I'm a passionate developer with some experiences in creating interactive web experiences. My journey in web development has led me to explore the intersection of design and technology.</p>
+                <p>Hi! I am Goldae Love Lopera Rebucas, 21 years old. I was born on the 10th of July, 2003. Currently residing at Camaman-an Cagayan de Oro City. A second year student of University of Science and Technology of Southern Philippines, CDO Campus. </p>
+                <p>I'm a passionate student developer with some experiences in creating interactive web. My journey in web development has led me to explore the intersection of design and technology.</p>
                 <p>With a strong foundation in front-end technologies, I specialize in building responsive, user-friendly applications that work seamlessly across all devices.</p>
                 <p>When I'm not coding, you can find me exploring the road, riding my motorcycle to unwind with special people.</p>
                 
                 <div class="skills-container">
-                    <span class="skill-tag">HTML</span>
-                    <span class="skill-tag">CSS</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">Responsive Design</span>
-                    <span class="skill-tag">UI/UX</span>
+                    <a href="https://www.geeksforgeeks.org/what-is-html/" class="skill-tag" target="_blank">HTML</a>
+                    <a href="https://www.geeksforgeeks.org/css-introduction/" class="skill-tag" target="_blank">CSS</a>
+                    <a href="https://www.geeksforgeeks.org/introduction-to-java/" class="skill-tag" target="_blank">Java</a>
+                    <a href="https://www.geeksforgeeks.org/introduction-to-javascript/" class="skill-tag" target="_blank">JavaScript</a>
+                    <a href="https://www.geeksforgeeks.org/python-programming-language-tutorial/" class="skill-tag" target="_blank">Python</a>
+                    <a href="https://www.geeksforgeeks.org/sql-tutorial/" class="skill-tag" target="_blank">SQL</a>
+                    <a href="https://www.geeksforgeeks.org/responsive-web-design/" class="skill-tag" target="_blank">Responsive Design</a>
+                    <a href="https://www.geeksforgeeks.org/principles-of-ui-ux-design/" class="skill-tag" target="_blank">UI/UX</a>
                 </div>
             </div>
         </div>
@@ -933,12 +950,6 @@
                     <h3>USTP Webpage Imitation</h3>
                     <p>HTML AND CSS REQUIREMENT PROJECT FOR THE COURSE IT111 (INTRODUCTION TO COMPUTING) DURING MY FIRST YEAR COLLEGE.</p>
                     <div class="project-links">
-                        <a href="#" class="project-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                        <a href="#" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
                     </div>
                 </div>
             </div>
@@ -948,15 +959,9 @@
                     <img src="webP.jpg" alt="Custom Webpage" class="project-image" loading="lazy">
                 </div>
                 <div class="project-info">
-                    <h3>Web Page</h3>
+                    <h3>Custom Webpage</h3>
                     <p>The Bored Space webpage that is designed for a user friendly interaction.</p>
                     <div class="project-links">
-                        <a href="#" class="project-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                        <a href="#" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
                     </div>
                 </div>
             </div>
@@ -969,12 +974,6 @@
                     <h3>DVD Rental Database</h3>
                     <p>DVD Rental Database that is designed to manage a DVD rental business, storing customer details, rental transactions, payment records, and inventory management.</p>
                     <div class="project-links">
-                        <a href="#" class="project-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                        <a href="#" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
                     </div>
                 </div>
             </div>
@@ -985,14 +984,8 @@
                 </div>
                 <div class="project-info">
                     <h3>Juan's History Hop</h3>
-                    <p>A mobile game that teaches the history of the Philippines. It was a group project that I led alongside my classmates.</p>
+                    <p>A mobile game that teaches the history of the Philippines. It was a group project that I led alongside my colleagues.</p>
                     <div class="project-links">
-                        <a href="#" class="project-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                        <a href="#" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
                     </div>
                 </div>
             </div>
@@ -1001,7 +994,7 @@
     
     <!-- Contact Section -->
     <section id="contact">
-        <h2>Get In Touch</h2>
+        <h2>Wanna ask or know me more?</h2>
         <form class="contact-form" id="contactForm">
             <input type="text" placeholder="Your Name" required aria-label="Your Name">
             <input type="email" placeholder="Your Email" required aria-label="Your Email">
@@ -1129,18 +1122,19 @@
         const scrollReveal = {
             distance: '60px',
             duration: 1000,
-            delay: 200,
+            delay: 150,
             reset: true
         };
 
        // Initialize scroll reveal for elements
-       function initScrollReveal() {
+       function initScrollReveal()  {
         const elements = document.querySelectorAll('.about-content, .project-card, .contact-form');
         elements.forEach((el, index) => {
             const delay = index * 200;
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
-            el.style.transition = `opacity 0.6s cubic-bezier(0.5, 0, 0, 1) ${delay}ms, transform 0.6s cubic-bezier(0.5, 0, 0, 1) ${delay}ms`;
+            el.style.transition = `opacity 0.5s cubic-bezier(0.5, 0, 0, 0) ${delay}ms, transform 0.6s cubic-bezier(0.5, 0, 0, 0) ${delay}ms`;
+            contactForm.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out'; 
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1148,6 +1142,8 @@
                         entry.target.style.opacity = '1';
                         entry.target.style.transform = 'translateY(0)';
                         observer.unobserve(entry.target);
+
+                        
                     }
                 });
             }, { threshold: 0.1 });
