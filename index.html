@@ -283,7 +283,7 @@
         
         .about-image {
             flex: 0 0 400px;
-            height: 570px;
+            height: 650px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -454,7 +454,7 @@
         }
         
         .project-image-container {
-            height: 200px;
+            height: 190px;
             overflow: hidden;
             position: relative;
         }
@@ -547,7 +547,7 @@
             display: flex;
             flex-direction: column;
             width: 90%;
-            max-width: 600px;
+            max-width: 1000px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
@@ -876,7 +876,8 @@
     <section id="home">
         <div class="content">
             <h1>Hi! I'm Goldae Rebucas</h1>
-            <p>STUDENT | WEB DEVELOPER | DESIGNER | PROGRAMMER | GAMER</p>
+<p>Student | Web Developer | Designer | Programmer | Gamer</p>
+
             
             <div class="cube-container">
                 <div class="cube">
@@ -917,13 +918,14 @@
         <h2>About Me</h2>
         <div class="about-content">
             <div class="about-image">
-                <img src="2x2.jpg" alt="Goldae Love L. Rebucas" loading="lazy">
+                <img src="prof.jpg" alt="Goldae Love L. Rebucas" loading="lazy">
             </div>
             <div class="about-text">
-                <p>Hi! I am Goldae Love Lopera Rebucas, 21 years old. I was born on the 10th of July, 2003. Currently residing at Camaman-an Cagayan de Oro City. A second year student of University of Science and Technology of Southern Philippines, CDO Campus. </p>
-                <p>I'm a passionate student developer with some experiences in creating interactive web. My journey in web development has led me to explore the intersection of design and technology.</p>
-                <p>With a strong foundation in front-end technologies, I specialize in building responsive, user-friendly applications that work seamlessly across all devices.</p>
-                <p>When I'm not coding, you can find me exploring the road, riding my motorcycle to unwind with special people.</p>
+                <p>Hi! I'm Goldae Love "Golids" Lopera Rebucas, a 21-year-old born on July 10, 2003. I currently live in Camaman-an, Cagayan de Oro City, and I'm a second-year student at the University of Science and Technology of Southern Philippines (USTP), CDO Campus. </p>
+                <p>As a passionate student developer, I have experience building interactive websites. My journey in web development has allowed me to explore the intersection of design and technology, blending creativity with functionality.</p>
+                <p>With a strong foundation in front-end development, I specialize in creating responsive, user-friendly applications that deliver seamless experiences across all devices.</p>
+                <p>When I'm not coding, you'll find me hitting the road on my motorcycle, exploring new places, and unwinding with special people.</p>
+                <p><i>"Learning, Building, Evolving - One Line of Code at a Time."</i></p>
                 
                 <div class="skills-container">
                     <a href="https://www.geeksforgeeks.org/what-is-html/" class="skill-tag" target="_blank">HTML</a>
@@ -943,18 +945,19 @@
     <section id="projects">
         <h2>My Projects</h2>
         <div class="projects-grid">
+            <!-- Project 1-->
             <div class="project-card">
                 <div class="project-image-container">
                     <img src="ustp.png" alt="USTP Webpage Imitation" class="project-image" loading="lazy">
                 </div>
                 <div class="project-info">
                     <h3>USTP Webpage Imitation</h3>
-                    <p>HTML AND CSS REQUIREMENT PROJECT FOR THE COURSE IT111 (INTRODUCTION TO COMPUTING) DURING MY FIRST YEAR COLLEGE.</p>
+                    <p>The imitation of our University's Webpage. An HTML AND CSS required project for the course IT111 (INTRODUCTION TO COMPUTING) during my college freshmen year 2023.</p>
                     <div class="project-links">
                     </div>
                 </div>
             </div>
-            
+            <!-- Project 2-->
             <div class="project-card">
                 <div class="project-image-container">
                     <img src="webP.jpg" alt="Custom Webpage" class="project-image" loading="lazy">
@@ -966,7 +969,7 @@
                     </div>
                 </div>
             </div>
-            
+            <!-- Project 3-->
             <div class="project-card">
                 <div class="project-image-container">
                     <img src="database.png" alt="DVD Rental Database" class="project-image" loading="lazy">
@@ -978,7 +981,7 @@
                     </div>
                 </div>
             </div>
-            
+            <!-- Project 4-->
             <div class="project-card">
                 <div class="project-image-container">
                     <img src="juans.png" alt="Juan's History Hop Mobile Game" class="project-image" loading="lazy">
@@ -990,12 +993,37 @@
                     </div>
                 </div>
             </div>
+            <!-- Project 5-->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="first.png" alt="1st WP" class="project-image" loading="lazy">
+                </div>
+                <div class="project-info">
+                    <h3>1ST TRY OF WEB PORTFOLIO</h3>
+                    <p>This is the first ever portfolio that I made. It was a obviously a beginner and very simple webpage that contains only my limited personal information and literally no projects at all.</p>
+                    <div class="project-links">
+                    </div>
+                </div>
+            </div>
+            <!-- Project 6-->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="2nd.png" alt="2nd WP" class="project-image" loading="lazy">
+                </div>
+                <div class="project-info">
+                    <h3>2ND TRY OF WEB PORTFOLIO</h3>
+                    <p>I have gained some knowledge and ideas so I put my knowledge and skills to test, and this is the output. Not good but also not bad.</p>
+                    <div class="project-links">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     
     <!-- Contact Section -->
     <section id="contact">
-        <h2>Wanna ask or know me more?</h2>
+<h2>Let's connect—questions, collabs, or just a hello!</h2>
+
         <form class="contact-form" id="contactForm">
             <input type="text" placeholder="Your Name" required aria-label="Your Name">
             <input type="email" placeholder="Your Email" required aria-label="Your Email">
@@ -1088,7 +1116,7 @@
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             // Here you would typically send the form data to a server
-            alert('Thank you for your message! I will get back to you soon.');
+            alert('Thank you for your message! I will get back to you soon -golids.');
             contactForm.reset();
         });
         
